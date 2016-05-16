@@ -3,5 +3,5 @@ export interface IEvent {
     object: string;
     eventName: string;
     clientTime: number;
-    data: Object;
+    data?: Object;
 }
