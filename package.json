@@ -4,7 +4,7 @@
   "description": "JavaScript client for pushing tracking events to the tracking API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,15 @@
   },
   "homepage": "https://github.com/tombolaltd/tombola.tracking.client#readme",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bump": "^2.1.0",
+    "gulp-typedoc": "^2.0.0",
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.8.2",
+    "typedoc": "^0.3.12",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "webpack-stream": "^3.2.0"
   }
 }
