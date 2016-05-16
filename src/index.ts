@@ -5,7 +5,7 @@ import {ITrackerConfiguration} from './lib/configurations/ITrackerConfiguration'
 import {IInteractionConfig} from "./lib/configurations/IInteractionConfig";
 import {IPlugin} from './lib/plugins/IPlugin';
 import {Logger} from './lib/logging/Logger';
-import {PageTracker} from './lib/page/PageTracker';
+import {PageHit} from './lib/page/PageHit';
 import {Interaction} from './lib/interaction/Interaction';
 
 export class Tracker {
@@ -17,7 +17,7 @@ export class Tracker {
     logger:Logger;
     plugins:Array<IPlugin>;
     interactions:Array<Interaction>;
-    pages:Array<PageTracker>;
+    pageHits:Array<PageHit>;
 
     constructor(configuration:ITrackerConfiguration, logData:Object) {
         this.configuration = configuration;
@@ -25,15 +25,16 @@ export class Tracker {
         this.logger = new Logger(this.configuration);
         this.plugins = [];
         this.interactions = [];
-        this.pages = [];
+        this.pageHits = [];
     }
 
     addPlugin(Plugin:Function) {
         return this;
     }
 
-    addPage(pageName:String):Tracker {
-        this.pages.push(new PageTracker(pageName));
+    addPage(pageName:string):Tracker {
+        debugger;
+        this.pageHits.push(new PageHit(this.logger, pageName));
 
         return this;
     }
