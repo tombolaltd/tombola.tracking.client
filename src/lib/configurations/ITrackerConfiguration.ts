@@ -1,10 +1,11 @@
 export interface ITrackerConfiguration {
-    appName: String;
-    trackingId: String;
-    tenantId: Number;
-    formFactor: String;
-    userId: Number;
-    bufferedLog: Boolean;
-    flushTimeout: Number;
-    apiEndpoint: String;
+    appName: string;
+    trackingId: string;
+    tenantId: number;
+    formFactor: string;
+    userId: number;
+    bufferedLog: boolean;
+    flushTimeout: number;
+    apiEndpoint: string;
+    debugMode: boolean
 }

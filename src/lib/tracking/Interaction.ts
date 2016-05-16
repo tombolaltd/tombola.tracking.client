@@ -1,7 +1,6 @@
-import {IInteraction} from './IInteraction';
 import {ILogger} from '../logging/ILogger';
 
-export class Interaction implements IInteraction {
+export class Interaction {
     logger:ILogger;
     selector:string;
     event:string;

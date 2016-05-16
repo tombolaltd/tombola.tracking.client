@@ -1,21 +1,16 @@
 import './lib/utils/polyfills';
 import {EVENT_NAMES} from './lib/enums/EventNames';
-import {PLUGIN_TYPES} from './lib/enums/PluginTypes';
 import {ITrackerConfiguration} from './lib/configurations/ITrackerConfiguration';
 import {IInteractionConfig} from "./lib/configurations/IInteractionConfig";
-import {IPlugin} from './lib/plugins/IPlugin';
 import {Logger} from './lib/logging/Logger';
-import {PageHit} from './lib/page/PageHit';
-import {Interaction} from './lib/interaction/Interaction';
+import {PageHit, Interaction} from './lib/tracking';
 
 export class Tracker {
     static EVENT_NAMES = EVENT_NAMES;
-    static PLUGIN_TYPES = PLUGIN_TYPES;
 
     configuration:ITrackerConfiguration;
     logData:Object;
     logger:Logger;
-    plugins:Array<IPlugin>;
     interactions:Array<Interaction>;
     pageHits:Array<PageHit>;
 
@@ -23,17 +18,11 @@ export class Tracker {
         this.configuration = configuration;
         this.logData = logData;
         this.logger = new Logger(this.configuration);
-        this.plugins = [];
         this.interactions = [];
         this.pageHits = [];
     }
 
-    addPlugin(Plugin:Function) {
-        return this;
-    }
-
-    addPage(pageName:string):Tracker {
-        debugger;
+    addPageHit(pageName:string):Tracker {
         this.pageHits.push(new PageHit(this.logger, pageName));
 
         return this;

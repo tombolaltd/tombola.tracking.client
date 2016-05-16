@@ -1,4 +1,4 @@
-let EVENT_NAMES = {
+const EVENT_NAMES = {
     PAGE: {
         ENTER: 'page.enter',
         LEAVE: 'page.leave',
