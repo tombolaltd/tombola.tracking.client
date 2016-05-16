@@ -6,11 +6,18 @@ var gulp = require('gulp'),
 gulp.task('compile-typescript', function () {
     return gulp
         .src('./src/index.js')
-        .pipe(webpack(require('./webpack.config')))
+        .pipe(webpack(require('./config/webpack.config.dev')))
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('generate-docs', ['compile-typescript'], function () {
+gulp.task('compile-and-minify-typescript', ['compile-typescript'], function () {
+    return gulp
+        .src('./src/index.js')
+        .pipe(webpack(require('./config/webpack.config.release')))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('generate-docs', ['compile-and-minify-typescript'], function () {
     return gulp
         .src('./src/**/*.ts')
         .pipe(typedoc({
