@@ -1,7 +1,20 @@
 var gulp = require('gulp'),
+    git = require('gulp-git'),
+    filter = require('gulp-filter'),
+    tagVersion = require('gulp-tag-version'),
     webpack = require('webpack-stream'),
     typedoc = require('gulp-typedoc'),
     bump = require('gulp-bump');
+
+function bump(bumpType) {
+    // get all the files to bump version in
+    return gulp.src(['./package.json', './bower.json'])
+        .pipe(bump({type: bumpType}))
+        .pipe(gulp.dest('./'))
+        .pipe(git.commit('bumps package version'))
+        .pipe(filter('package.json'))
+        .pipe(tagVersion());
+}
 
 gulp.task('compile-typescript', function () {
     return gulp
@@ -29,12 +42,16 @@ gulp.task('generate-docs', ['compile-and-minify-typescript'], function () {
         }));
 });
 
-gulp.task('bump-version', ['generate-docs'], function () {
-    return gulp
-        .src(['./bower.json', './package.json'])
-        .pipe(bump())
-        .pipe(gulp.dest('./'));
+gulp.task('default', ['compile-typescript']);
+
+gulp.task('patch', ['generate-docs'], function () {
+    return inc('patch');
 });
 
-gulp.task('default', ['compile-typescript']);
-gulp.task('deploy', ['bump-version']);
+gulp.task('feature', ['generate-docs'], function () {
+    return inc('minor');
+});
+
+gulp.task('release', ['generate-docs'], function () {
+    return inc('major');
+});
