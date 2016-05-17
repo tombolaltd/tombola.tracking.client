@@ -1,4 +1,4 @@
-![alt tag](http://bingoready.co.uk/images/reviews/tombola/logo.png)
+![alt tag](https://raw.githubusercontent.com/tombolaltd/tombola.tracking.client/master/logo.jpg?token=ALOSemPZ0bxHlcp8FbSe5_sz_QQDlfHNks5XRGn6wA%3D%3D)
 
 ### Tracking Client
 JavaScript client for pushing tracking events to the tracking API. Documentation can be found [here](http://tombolaltd.github.io/tombola.tracking.client/)
