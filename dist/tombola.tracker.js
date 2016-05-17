@@ -247,6 +247,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.url = this.configuration.apiEndpoint + '/event';
 	        this.events = JSON.parse(this.configuration.localStorage.getItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 	        if (this.configuration.bufferedLog) {
+	            if (this.configuration.localStorage === void 0) {
+	                throw new Error('"localStorage" is required when using a buffered log');
+	            }
 	            window.setInterval(function () { return _this.flushLogs(); }, this.configuration.flushTimeout);
 	        }
 	        if (this.events.length > 0) {

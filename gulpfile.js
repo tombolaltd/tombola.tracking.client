@@ -8,11 +8,10 @@ var gulp = require('gulp'),
 
 function bump(bumpType) {
     return gulp.src(['./package.json', './bower.json'])
-        .pipe(bump({type: bumpType}))
-        .pipe(gulp.dest('./'))
-        .pipe(git.commit('bumps package version'))
-        .pipe(filter('package.json'))
-        .pipe(tagVersion());
+        .pipe(bump())
+        .pipe(gulp.dest('./'));
+        //.pipe(git.commit('bumps package version'))
+        //.pipe(tagVersion());
 }
 
 gulp.task('compile-typescript', function () {

@@ -2,7 +2,7 @@
   "name": "tombola.tracking.client",
   "version": "1.0.0",
   "description": "JavaScript client for pushing tracking events to the tracking API",
-  "main": "index.js",
+  "main": "./dist/tombola.tracker.min.js",
   "authors": [
     "Chris Shepherd <Chris.Shepherd@tombola.com>"
   ],
