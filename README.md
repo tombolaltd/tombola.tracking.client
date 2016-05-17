@@ -3,6 +3,8 @@
 ## Tracking Client
 JavaScript client for pushing tracking events to the tracking API. Documentation can be found [here](http://tombolaltd.github.io/tombola.tracking.client/)
 
+## Installation
+`bower i git@github.com:tombolaltd/tombola.tracking.client.git --save`
 
 ***NOTE:*** Please refer to the docs for the different `Location` and `EventTypes` - do not just add new ones for the sake of it!
 
