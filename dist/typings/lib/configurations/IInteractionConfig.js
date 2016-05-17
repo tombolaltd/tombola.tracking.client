@@ -1,0 +1,1 @@
+//# sourceMappingURL=IInteractionConfig.js.map

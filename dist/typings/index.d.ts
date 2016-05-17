@@ -1,4 +1,3 @@
-import './lib/utils';
 import { Location, EventName } from './lib/enums';
 import { IInteractionConfig, ITrackerConfiguration } from './lib/configurations';
 import { IEvent } from './lib/logging';

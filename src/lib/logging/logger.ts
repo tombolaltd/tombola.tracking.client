@@ -16,6 +16,10 @@ export class Logger {
         this.events = JSON.parse(this.configuration.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 
         if (this.configuration.bufferedLog) {
+            if (this.configuration.localStorage === void 0) {
+                throw new Error('"localStorage" is required when using a buffered log');
+            }
+
             window.setInterval(() => this.flushLogs(), this.configuration.flushTimeout);
         }
 
