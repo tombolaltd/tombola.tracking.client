@@ -58,12 +58,13 @@ var tracker = new Tracker({
 
 myValidationLib.on('username-invalid', function (message) {
   tracker.log({
-    location: Tracker.Location.Login,
-    eventName: Tracker.EventName.ValidationError,
-    object: 'username-textbox',
-    data: {message
-    }
-});
+      location: Tracker.Location.Login,
+      eventName: Tracker.EventName.ValidationError,
+      object: 'username-textbox',
+      data: {
+        message: message
+      }
+  });
 });
 ```
 
