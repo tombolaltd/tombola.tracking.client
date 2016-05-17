@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>tombola.tracking.client</title>
+	<title>IInteractionConfig | tombola.tracking.client</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script src="assets/js/modernizr.js"></script>
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">tombola.tracking.client</a>
+					<a href="../index.html" class="title">tombola.tracking.client</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,84 +54,166 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="iinteractionconfig.html">IInteractionConfig</a>
 				</li>
 			</ul>
-			<h1> tombola.tracking.client</h1>
+			<h1>Interface IInteractionConfig</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="tombola-tracking-client">tombola.tracking.client</h1>
-				<p>JavaScript client for pushing tracking events to the tracking API</p>
-				<h1 id="gulp-commands">Gulp Commands</h1>
-				<ul>
-					<li><p>gulp (default): Compiles the typescript</p>
-					</li>
-					<li><p>gulp patch: Prepares the repo for a new patch release</p>
-					</li>
-					<li><p>gulp minor: Prepares the repo for a new minor release</p>
-					</li>
-					<li><p>gulp major: Prepares the repo for a new major release</p>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IInteractionConfig</span>
 					</li>
 				</ul>
-				<p>The release prep tasks will create a new git tag and will auto bump the bower/package.json file version numbers</p>
-			</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iinteractionconfig.html#buildlog" class="tsd-kind-icon">build<wbr>Log</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iinteractionconfig.html#event" class="tsd-kind-icon">event</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iinteractionconfig.html#selector" class="tsd-kind-icon">selector</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="buildlog" class="tsd-anchor"></a>
+					<h3>build<wbr>Log</h3>
+					<div class="tsd-signature tsd-kind-icon">build<wbr>Log<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/IInteractionConfig.ts#L6">lib/configurations/IInteractionConfig.ts:6</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span>, e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ievent.html" class="tsd-signature-type">IEvent</a></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>element: <span class="tsd-signature-type">Element</span></h5>
+											</li>
+											<li>
+												<h5>e: <span class="tsd-signature-type">Event</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="ievent.html" class="tsd-signature-type">IEvent</a></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="event" class="tsd-anchor"></a>
+					<h3>event</h3>
+					<div class="tsd-signature tsd-kind-icon">event<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/IInteractionConfig.ts#L5">lib/configurations/IInteractionConfig.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="selector" class="tsd-anchor"></a>
+					<h3>selector</h3>
+					<div class="tsd-signature tsd-kind-icon">selector<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/IInteractionConfig.ts#L4">lib/configurations/IInteractionConfig.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-is-not-exported">
-						<a href="enums/eventname.html" class="tsd-kind-icon">Event<wbr>Name</a>
+						<a href="../enums/eventname.html" class="tsd-kind-icon">Event<wbr>Name</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-is-not-exported">
-						<a href="enums/location.html" class="tsd-kind-icon">Location</a>
+						<a href="../enums/location.html" class="tsd-kind-icon">Location</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/event.html" class="tsd-kind-icon">Event</a>
+						<a href="../classes/event.html" class="tsd-kind-icon">Event</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/eventpayload.html" class="tsd-kind-icon">Event<wbr>Payload</a>
+						<a href="../classes/eventpayload.html" class="tsd-kind-icon">Event<wbr>Payload</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/interaction.html" class="tsd-kind-icon">Interaction</a>
+						<a href="../classes/interaction.html" class="tsd-kind-icon">Interaction</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
+						<a href="../classes/logger.html" class="tsd-kind-icon">Logger</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/tracker.html" class="tsd-kind-icon">Tracker</a>
+						<a href="../classes/tracker.html" class="tsd-kind-icon">Tracker</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/ievent.html" class="tsd-kind-icon">IEvent</a>
+						<a href="ievent.html" class="tsd-kind-icon">IEvent</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="iinteractionconfig.html" class="tsd-kind-icon">IInteraction<wbr>Config</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iinteractionconfig.html#buildlog" class="tsd-kind-icon">build<wbr>Log</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iinteractionconfig.html#event" class="tsd-kind-icon">event</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iinteractionconfig.html#selector" class="tsd-kind-icon">selector</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="ilog.html" class="tsd-kind-icon">ILog</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/iinteractionconfig.html" class="tsd-kind-icon">IInteraction<wbr>Config</a>
+						<a href="ilogger.html" class="tsd-kind-icon">ILogger</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/ilog.html" class="tsd-kind-icon">ILog</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ilogger.html" class="tsd-kind-icon">ILogger</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/itrackerconfiguration.html" class="tsd-kind-icon">ITracker<wbr>Configuration</a>
+						<a href="itrackerconfiguration.html" class="tsd-kind-icon">ITracker<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-external tsd-is-not-exported">
-						<a href="interfaces/objectconstructor.html" class="tsd-kind-icon">Object<wbr>Constructor</a>
+						<a href="objectconstructor.html" class="tsd-kind-icon">Object<wbr>Constructor</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#constants" class="tsd-kind-icon">CONSTANTS</a>
+						<a href="../globals.html#constants" class="tsd-kind-icon">CONSTANTS</a>
 					</li>
 				</ul>
 			</nav>
@@ -201,7 +283,7 @@
 	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
