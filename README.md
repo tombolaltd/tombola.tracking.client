@@ -1,10 +1,10 @@
-# tombola.tracking.client
+### tombola Tracking Client
 JavaScript client for pushing tracking events to the tracking API. Documentation can be found [here](http://tombolaltd.github.io/tombola.tracking.client/)
 
 
 ***NOTE:*** Please refer to the docs for the different `Location` and `EventTypes` - do not just add new ones for the sake of it!
 
-# Gulp Commands
+### Gulp Commands
 - `gulp` (default): Compiles the typescript and loads the dev server index.html
 
 - `gulp patch`: Prepares the repo for a new patch release
