@@ -1,4 +1,6 @@
-### tombola Tracking Client
+![alt tag](http://bingoready.co.uk/images/reviews/tombola/logo.png)
+
+### Tracking Client
 JavaScript client for pushing tracking events to the tracking API. Documentation can be found [here](http://tombolaltd.github.io/tombola.tracking.client/)
 
 
