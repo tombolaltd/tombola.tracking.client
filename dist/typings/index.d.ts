@@ -1,31 +1,14 @@
-import './lib/utils/polyfills';
-import { ITrackerConfiguration } from './lib/configurations/ITrackerConfiguration';
-import { IInteractionConfig } from "./lib/configurations/IInteractionConfig";
-import { Logger } from './lib/logging/Logger';
-import { PageHit, Interaction } from './lib/tracking';
+import './lib/utils';
+import { Location, EventName } from './lib/enums';
+import { IInteractionConfig, ITrackerConfiguration } from './lib/configurations';
+import { IEvent } from './lib/logging';
 export declare class Tracker {
-    static EVENT_NAMES: {
-        PAGE: {
-            ENTER: string;
-            LEAVE: string;
-            IDLE: string;
-        };
-        VALIDATION: {
-            ERROR: string;
-            SUCCESS: string;
-        };
-        INTERACTION: {
-            CLICK: string;
-            FOCUS: string;
-            BLUR: string;
-        };
-    };
+    static EventName: typeof EventName;
+    static Location: typeof Location;
+    private logger;
+    private interactions;
     configuration: ITrackerConfiguration;
-    logData: Object;
-    logger: Logger;
-    interactions: Array<Interaction>;
-    pageHits: Array<PageHit>;
-    constructor(configuration: ITrackerConfiguration, logData: Object);
-    addPageHit(pageName: string): Tracker;
+    constructor(configuration: ITrackerConfiguration);
     addInteractions(interactions: Array<IInteractionConfig>): Tracker;
+    log(event: IEvent): Tracker;
 }

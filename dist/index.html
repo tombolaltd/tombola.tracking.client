@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="tombola.tracker.js"></script>
+</head>
+<body>
+<form id="login-form">
+    <input type="text" id="username"/>
+    <input type="text" id="password"/>
+    <button id="login">Submit</button>
+</form>
+
+<script>
+    var tracker = new Tracker({
+        apiEndpoint: 'https://dev-tracking.tombola.co.uk',
+        formFactor: 'mobile',
+        appName: 'ArcadeFlash',
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36',
+        trackingId: window.localStorage.getItem('tombola.device-id'),
+        userId: 12345,
+        tenantId: 1010,
+        bufferedLog: true,
+        flushTimeout: 5000,
+        localStorage: window.localStorage
+    });
+
+    /* This is a mock up of a "validation" library. We don't provide plugins as
+     the tracker is available and it exposes the "log()" method so you can call
+     it as and when you like.
+     */
+
+    var login = document.querySelector('#login-form'),
+        username = document.querySelector('#username'),
+        password = document.querySelector('#password');
+
+    login.addEventListener('submit', function (e) {
+        if (!username.value) {
+            tracker.log({
+                location: Tracker.Location.Login,
+                eventName: Tracker.EventName.ValidationError,
+                object: 'username-textbox',
+                data: {
+                    message: 'Username is a required field'
+                }
+            });
+        }
+
+        if (!password.value) {
+            tracker.log({
+                location: Tracker.Location.Login,
+                eventName: Tracker.EventName.ValidationError,
+                object: 'password-textbox',
+                data: {
+                    message: 'Password is a required field'
+                }
+            });
+        }
+
+        e.preventDefault();
+        return false;
+    });
+
+
+    tracker
+            .addInteractions([
+                {
+                    selector: '#username',
+                    event: 'blur',
+                    buildLog: function (element) {
+                        return {
+                            location: Tracker.Location.Login,
+                            eventName: (element.value) ? Tracker.EventName.ValidationSuccess : Tracker.EventName.ValidationError,
+                            object: 'username-textbox',
+                            data: {
+                                message: 'Username is a required field'
+                            }
+                        };
+                    }
+                },
+                {
+                    selector: '#password',
+                    event: 'blur',
+                    buildLog: function (element) {
+                        return {
+                            location: Tracker.Location.Login,
+                            eventName: (element.value) ? Tracker.EventName.ValidationSuccess : Tracker.EventName.ValidationError,
+                            object: 'password-textbox',
+                            data: {
+                                message: 'Password is a required field'
+                            }
+                        };
+                    }
+                },
+                {
+                    selector: '#login',
+                    event: 'click',
+                    buildLog: function () {
+                        return {
+                            location: Tracker.Location.Login,
+                            eventName: Tracker.EventName.ButtonPress,
+                            object: 'login-form'
+                        };
+                    }
+                }
+            ])
+            .log({
+                location: Tracker.Location.Login,
+                eventName: Tracker.EventName.PageEnter,
+                object: 'page'
+            });
+</script>
+</body>
+</html>

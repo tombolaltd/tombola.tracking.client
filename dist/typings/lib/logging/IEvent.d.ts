@@ -1,7 +1,8 @@
+import { Location, EventName } from '../enums';
 export interface IEvent {
-    location: string;
+    location: Location;
     object: string;
-    eventName: string;
+    eventName: EventName;
     clientTime: number;
     data?: Object;
 }

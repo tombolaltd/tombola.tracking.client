@@ -1,17 +1,26 @@
+import {CONSTANTS} from '../constants';
 import {ITrackerConfiguration} from '../configurations/ITrackerConfiguration';
 import {ILog} from "./ILog";
 import {IEvent} from './IEvent';
+import {EventPayload} from './EventPayload';
+import {Location, EventName} from '../enums';
 
 export class Logger {
     events:Array<IEvent>;
+    url:string;
     configuration:ITrackerConfiguration;
 
     constructor(configuration:ITrackerConfiguration) {
         this.configuration = configuration;
-        this.events = [];
+        this.url = this.configuration.apiEndpoint + '/event';
+        this.events = JSON.parse(this.configuration.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 
         if (this.configuration.bufferedLog) {
             window.setInterval(() => this.flushLogs(), this.configuration.flushTimeout);
+        }
+
+        if (this.events.length > 0) {
+            this.flushLogs();
         }
     }
 
@@ -21,26 +30,29 @@ export class Logger {
 
         if (!this.configuration.bufferedLog) {
             this.flushLogs();
+        } else {
+            this.configuration.localStorage.setItem(CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(this.events));
         }
     }
 
     flushLogs() {
         try {
             let xhr = new (XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0'),
-                events = this.events.slice();
+                eventsToSend = this.events.splice(0);
 
-            if (events.length > 0) {
-                xhr.open('POST', this.configuration.apiEndpoint, 1);
+            if (eventsToSend.length > 0) {
+                xhr.open('POST', this.url, 1);
                 xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
                 xhr.setRequestHeader('Content-type', 'application/json');
                 xhr.onreadystatechange = () => {
                     if (xhr.readyState === 4) {
                         if (xhr.status >= 400 ||
                             xhr.status >= 500) {
+                            this.events = this.events.concat(eventsToSend);
                             console.error('Failed to send tracking events:', xhr);
-                        } else {
-                            this.events = [];
                         }
+
+                        this.configuration.localStorage.setItem(CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(this.events));
                     }
                 };
 
@@ -52,7 +64,15 @@ export class Logger {
                     userId: this.configuration.userId,
                     userAgent: window.navigator.userAgent
                 }, {
-                    events: events
+                    events: eventsToSend.map((event) => {
+                        return new EventPayload(
+                            Location.getStringValue(event.location),
+                            EventName.getStringValue(event.eventName),
+                            event.clientTime,
+                            event.object,
+                            event.data
+                        );
+                    })
                 });
 
                 xhr.send(JSON.stringify(payload));

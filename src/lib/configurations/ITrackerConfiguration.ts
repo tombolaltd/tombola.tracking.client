@@ -7,5 +7,5 @@ export interface ITrackerConfiguration {
     bufferedLog: boolean;
     flushTimeout: number;
     apiEndpoint: string;
-    debugMode: boolean
+    localStorage: Storage;
 }

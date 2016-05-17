@@ -1,6 +1,7 @@
 import { ILogger } from "../logging/ILogger";
+import { Location } from '../enums';
 export declare class PageHit {
     logger: ILogger;
-    pageName: string;
-    constructor(logger: ILogger, pageName: string);
+    location: Location;
+    constructor(logger: ILogger, location: Location);
 }

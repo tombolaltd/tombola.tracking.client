@@ -1,37 +1,39 @@
-import './lib/utils/polyfills';
-import {EVENT_NAMES} from './lib/enums/EventNames';
-import {ITrackerConfiguration} from './lib/configurations/ITrackerConfiguration';
-import {IInteractionConfig} from "./lib/configurations/IInteractionConfig";
-import {Logger} from './lib/logging/Logger';
-import {PageHit, Interaction} from './lib/tracking';
+import './lib/utils';
+import {CONSTANTS} from './lib/constants';
+import {Location, EventName} from './lib/enums';
+import {IInteractionConfig, ITrackerConfiguration} from './lib/configurations';
+import {IEvent, Logger, Interaction} from './lib/logging';
 
 export class Tracker {
-    static EVENT_NAMES = EVENT_NAMES;
+    static EventName = EventName;
+    static Location = Location;
 
-    configuration:ITrackerConfiguration;
-    logData:Object;
-    logger:Logger;
-    interactions:Array<Interaction>;
-    pageHits:Array<PageHit>;
+    private logger:Logger;
+    private interactions:Array<Interaction>;
 
-    constructor(configuration:ITrackerConfiguration, logData:Object) {
+    public configuration:ITrackerConfiguration;
+
+    constructor(configuration:ITrackerConfiguration) {
         this.configuration = configuration;
-        this.logData = logData;
+
+        if (this.configuration.bufferedLog && !this.configuration.flushTimeout) {
+            this.configuration.flushTimeout = CONSTANTS.DEFAULT_FLUSH_TIMEOUT;
+        }
+
         this.logger = new Logger(this.configuration);
         this.interactions = [];
-        this.pageHits = [];
-    }
-
-    addPageHit(pageName:string):Tracker {
-        this.pageHits.push(new PageHit(this.logger, pageName));
-
-        return this;
     }
 
     addInteractions(interactions:Array<IInteractionConfig>):Tracker {
         interactions.forEach((interaction) => {
             this.interactions.push(new Interaction(this.logger, interaction.selector, interaction.event, interaction.buildLog));
         });
+
+        return this;
+    }
+
+    log(event:IEvent):Tracker {
+        this.logger.push(event);
 
         return this;
     }

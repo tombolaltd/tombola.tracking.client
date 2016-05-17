@@ -85,9 +85,9 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#apiendpoint" class="tsd-kind-icon">api<wbr>Endpoint</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#appname" class="tsd-kind-icon">app<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#bufferedlog" class="tsd-kind-icon">buffered<wbr>Log</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#debugmode" class="tsd-kind-icon">debug<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#flushtimeout" class="tsd-kind-icon">flush<wbr>Timeout</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#formfactor" class="tsd-kind-icon">form<wbr>Factor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#localstorage" class="tsd-kind-icon">local<wbr>Storage</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#trackingid" class="tsd-kind-icon">tracking<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itrackerconfiguration.html#userid" class="tsd-kind-icon">user<wbr>Id</a></li>
@@ -129,16 +129,6 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="debugmode" class="tsd-anchor"></a>
-					<h3>debug<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">debug<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/ITrackerConfiguration.ts#L10">lib/configurations/ITrackerConfiguration.ts:10</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="flushtimeout" class="tsd-anchor"></a>
 					<h3>flush<wbr>Timeout</h3>
 					<div class="tsd-signature tsd-kind-icon">flush<wbr>Timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -155,6 +145,16 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/ITrackerConfiguration.ts#L5">lib/configurations/ITrackerConfiguration.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="localstorage" class="tsd-anchor"></a>
+					<h3>local<wbr>Storage</h3>
+					<div class="tsd-signature tsd-kind-icon">local<wbr>Storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Storage</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/master/src/lib/configurations/ITrackerConfiguration.ts#L10">lib/configurations/ITrackerConfiguration.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,17 +200,23 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-is-not-exported">
+						<a href="../enums/eventname.html" class="tsd-kind-icon">Event<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-is-not-exported">
+						<a href="../enums/location.html" class="tsd-kind-icon">Location</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/event.html" class="tsd-kind-icon">Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/eventpayload.html" class="tsd-kind-icon">Event<wbr>Payload</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/interaction.html" class="tsd-kind-icon">Interaction</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/logger.html" class="tsd-kind-icon">Logger</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/pagehit.html" class="tsd-kind-icon">Page<wbr>Hit</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/tracker.html" class="tsd-kind-icon">Tracker</a>
@@ -242,13 +248,13 @@
 								<a href="itrackerconfiguration.html#bufferedlog" class="tsd-kind-icon">buffered<wbr>Log</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="itrackerconfiguration.html#debugmode" class="tsd-kind-icon">debug<wbr>Mode</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="itrackerconfiguration.html#flushtimeout" class="tsd-kind-icon">flush<wbr>Timeout</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="itrackerconfiguration.html#formfactor" class="tsd-kind-icon">form<wbr>Factor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="itrackerconfiguration.html#localstorage" class="tsd-kind-icon">local<wbr>Storage</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="itrackerconfiguration.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a>
@@ -266,8 +272,8 @@
 					<li class=" tsd-kind-interface tsd-is-external tsd-is-not-exported">
 						<a href="objectconstructor.html" class="tsd-kind-icon">Object<wbr>Constructor</a>
 					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="../globals.html#event_names" class="tsd-kind-icon">EVENT_<wbr>NAMES</a>
+					<li class=" tsd-kind-object-literal">
+						<a href="../globals.html#constants" class="tsd-kind-icon">CONSTANTS</a>
 					</li>
 				</ul>
 			</nav>

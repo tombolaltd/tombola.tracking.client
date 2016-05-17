@@ -1,13 +1,14 @@
 import {IEvent} from "./IEvent";
+import {Location, EventName} from '../enums';
 
 export class Event implements IEvent {
-    location:string;
+    location:Location;
     object:string;
-    eventName:string;
+    eventName:EventName;
     clientTime:number;
     data:Object;
 
-    constructor(location:string, object:string, eventName:string, data = {}) {
+    constructor(location:Location, object:string, eventName:EventName, data = {}) {
         this.location = location;
         this.object = object;
         this.eventName = eventName;
