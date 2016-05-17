@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     bump = require('gulp-bump');
 
 function bump(bumpType) {
-    // get all the files to bump version in
     return gulp.src(['./package.json', './bower.json'])
         .pipe(bump({type: bumpType}))
         .pipe(gulp.dest('./'))
@@ -45,13 +44,13 @@ gulp.task('generate-docs', ['compile-and-minify-typescript'], function () {
 gulp.task('default', ['compile-typescript']);
 
 gulp.task('patch', ['generate-docs'], function () {
-    return inc('patch');
+    return bump('patch');
 });
 
 gulp.task('feature', ['generate-docs'], function () {
-    return inc('minor');
+    return bump('minor');
 });
 
 gulp.task('release', ['generate-docs'], function () {
-    return inc('major');
+    return bump('major');
 });
