@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="tombola.tracker.js"></script>
+    <title>Tombola tracker | Test Bed</title>
+    <script type="text/javascript" src="../dist/tombola.tracker.js"></script>
 </head>
 <body>
 <form id="login-form">
@@ -25,11 +25,6 @@
         flushTimeout: 5000,
         localStorage: window.localStorage
     });
-
-    /* This is a mock up of a "validation" library. We don't provide plugins as
-     the tracker is available and it exposes the "log()" method so you can call
-     it as and when you like.
-     */
 
     var login = document.querySelector('#login-form'),
         username = document.querySelector('#username'),

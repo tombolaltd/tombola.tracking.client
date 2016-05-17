@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
     git = require('gulp-git'),
+    gitHubPages = require('gulp-gh-pages'),
     filter = require('gulp-filter'),
     tagVersion = require('gulp-tag-version'),
     webpack = require('webpack-stream'),
     typedoc = require('gulp-typedoc'),
-    bump = require('gulp-bump');
+    bump = require('gulp-bump'),
+    connect = require('gulp-connect');
 
 function bumpVersion(bumpType) {
     return gulp.src(['./package.json', './bower.json'])
@@ -43,16 +45,27 @@ gulp.task('generate-docs', ['compile-and-minify-typescript'], function () {
         }));
 });
 
-gulp.task('default', ['compile-typescript']);
+gulp.task('publish-docs', ['generate-docs'], function () {
+    return gulp.src('./dist/docs/**/*')
+        .pipe(gitHubPages());
+});
 
-gulp.task('patch', ['generate-docs'], function () {
+gulp.task('server', ['compile-typescript'], function () {
+    connect.server({
+        root: './'
+    })
+});
+
+gulp.task('default', ['server']);
+
+gulp.task('patch', ['publish-docs'], function () {
     return bumpVersion('patch');
 });
 
-gulp.task('feature', ['generate-docs'], function () {
+gulp.task('minor', ['publish-docs'], function () {
     return bumpVersion('minor');
 });
 
-gulp.task('release', ['generate-docs'], function () {
+gulp.task('major', ['publish-docs'], function () {
     return bumpVersion('major');
 });
