@@ -1,12 +1,12 @@
-![alt tag](https://raw.githubusercontent.com/tombolaltd/tombola.tracking.client/master/logo.jpg?token=ALOSemPZ0bxHlcp8FbSe5_sz_QQDlfHNks5XRGn6wA%3D%3D)
+<img src="https://raw.githubusercontent.com/tombolaltd/tombola.tracking.client/master/logo.jpg?token=ALOSemPZ0bxHlcp8FbSe5_sz_QQDlfHNks5XRGn6wA%3D%3D" height="100" />
 
-### Tracking Client
+## Tracking Client
 JavaScript client for pushing tracking events to the tracking API. Documentation can be found [here](http://tombolaltd.github.io/tombola.tracking.client/)
 
 
 ***NOTE:*** Please refer to the docs for the different `Location` and `EventTypes` - do not just add new ones for the sake of it!
 
-### Gulp Commands
+## Gulp Commands
 - `gulp` (default): Compiles the typescript and loads the dev server index.html
 
 - `gulp patch`: Prepares the repo for a new patch release
