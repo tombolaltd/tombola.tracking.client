@@ -6,12 +6,15 @@ var gulp = require('gulp'),
     typedoc = require('gulp-typedoc'),
     bump = require('gulp-bump');
 
-function bump(bumpType) {
+function bumpVersion(bumpType) {
     return gulp.src(['./package.json', './bower.json'])
-        .pipe(bump())
-        .pipe(gulp.dest('./'));
-        //.pipe(git.commit('bumps package version'))
-        //.pipe(tagVersion());
+        .pipe(bump({
+            type: bumpType
+        }))
+        .pipe(gulp.dest('./'))
+        .pipe(git.commit('bumps package version'))
+        .pipe(filter('package.json'))
+        .pipe(tagVersion());
 }
 
 gulp.task('compile-typescript', function () {
@@ -43,13 +46,13 @@ gulp.task('generate-docs', ['compile-and-minify-typescript'], function () {
 gulp.task('default', ['compile-typescript']);
 
 gulp.task('patch', ['generate-docs'], function () {
-    return bump('patch');
+    return bumpVersion('patch');
 });
 
 gulp.task('feature', ['generate-docs'], function () {
-    return bump('minor');
+    return bumpVersion('minor');
 });
 
 gulp.task('release', ['generate-docs'], function () {
-    return bump('major');
+    return bumpVersion('major');
 });
