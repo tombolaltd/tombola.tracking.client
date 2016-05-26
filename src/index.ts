@@ -3,12 +3,7 @@ import {CONSTANTS} from './lib/constants';
 import {Location, EventName} from './lib/enums';
 import {IInteractionConfig, ITrackerConfiguration} from './lib/configurations';
 import {IEvent, Logger, Interaction} from './lib/logging';
-
-export interface ITracker {
-    addInteractions(interactions:Array<IInteractionConfig>): ITracker;
-    log(event:IEvent): ITracker;
-    log(events:IEvent[]): ITracker;
-}
+import {ITracker} from './lib/logging/ITracker';
 
 export class Tracker implements ITracker {
     static EventName = EventName;
