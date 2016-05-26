@@ -4,7 +4,13 @@ import {Location, EventName} from './lib/enums';
 import {IInteractionConfig, ITrackerConfiguration} from './lib/configurations';
 import {IEvent, Logger, Interaction} from './lib/logging';
 
-export class Tracker {
+export interface ITracker {
+    addInteractions(interactions:Array<IInteractionConfig>): ITracker;
+    log(event:IEvent): ITracker;
+    log(events:IEvent[]): ITracker;
+}
+
+export class Tracker implements ITracker {
     static EventName = EventName;
     static Location = Location;
 
@@ -32,9 +38,14 @@ export class Tracker {
         return this;
     }
 
-    log(event:IEvent):Tracker {
-        this.logger.push(event);
-
+    log(event:IEvent): ITracker;
+    log(events:IEvent[]): ITracker;
+    log(arg: IEvent | IEvent[]): ITracker {
+        if (arg instanceof Array) {
+            arg.forEach(this.logger.push);
+        } else {
+            this.logger.push(arg);
+        }
         return this;
     }
 }
