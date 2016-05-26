@@ -35,7 +35,7 @@ export class Tracker implements ITracker {
 
     log(event:IEvent): ITracker;
     log(events:IEvent[]): ITracker;
-    log(arg: IEvent | IEvent[]): ITracker {
+    log(arg: any): ITracker {
         if (arg instanceof Array) {
             arg.forEach(this.logger.push);
         } else {
