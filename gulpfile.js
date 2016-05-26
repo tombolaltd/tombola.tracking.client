@@ -53,7 +53,7 @@ gulp.task('publish-docs', ['generate-docs'], function () {
 gulp.task('server', ['compile-typescript'], function () {
     connect.server({
         root: './'
-    })
+    });
 });
 
 gulp.task('default', ['server']);

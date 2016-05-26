@@ -65,20 +65,80 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="tombola-tracking-client">tombola.tracking.client</h1>
-				<p>JavaScript client for pushing tracking events to the tracking API</p>
-				<h1 id="gulp-commands">Gulp Commands</h1>
+				<p><img src="https://raw.githubusercontent.com/tombolaltd/tombola.tracking.client/master/logo.jpg?token=ALOSemPZ0bxHlcp8FbSe5_sz_QQDlfHNks5XRGn6wA%3D%3D" height="100" /></p>
+				<h2 id="installation">Installation</h2>
+				<p><code>bower i git@github.com:tombolaltd/tombola.tracking.client.git --save</code></p>
+				<h2 id="documentation">Documentation</h2>
+				<p>API Docs can be found <a href="http://tombolaltd.github.io/tombola.tracking.client/">here</a></p>
+				<p><strong><em>NOTE:</em></strong> Please refer to the docs for the different <code>Location</code> and <code>EventTypes</code> - do not just add new ones for the sake of it!</p>
+				<h2 id="example-validation-with-no-event-hooks-">Example (Validation with no event hooks)</h2>
+				<pre><code class="lang-js"><span class="hljs-keyword">var</span> tracker = <span class="hljs-keyword">new</span> Tracker({
+  apiEndpoint: <span class="hljs-string">'https://dev-tracking.tombola.co.uk'</span>,
+  formFactor: <span class="hljs-string">'mobile'</span>,
+  appName: <span class="hljs-string">'ArcadeFlash'</span>,
+  trackingId: <span class="hljs-built_in">window</span>.localStorage.getItem(<span class="hljs-string">'tombola.device-id'</span>),
+  userId: <span class="hljs-number">12345</span>,
+  tenantId: <span class="hljs-number">1010</span>
+});
+
+tracker
+  .log({
+    eventName: Tracker.EventName.PageEnter,
+    location: Tracker.Location.Login,
+    object: <span class="hljs-string">'page'</span>
+  })
+  .addInteractions([
+    {
+      selector: <span class="hljs-string">'#password'</span>,
+      event: <span class="hljs-string">'blur'</span>,
+      buildLog: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, e</span>) </span>{
+        <span class="hljs-keyword">var</span> isValid = myValidationLibrary.validate(element);
+
+        <span class="hljs-keyword">return</span> {
+          eventName: (isValid) ? tracker.EventName.ValidationSuccess : Tracker.EventName.ValidationError,
+          location: Tracker.Location.Login,
+          object: <span class="hljs-string">'password-textbox'</span>
+        };
+      }
+    }
+  ]);
+</code></pre>
+				<h2 id="example-validation-has-event-hooks-">Example (Validation has event hooks)</h2>
+				<pre><code class="lang-js"><span class="hljs-keyword">var</span> tracker = <span class="hljs-keyword">new</span> Tracker({
+  apiEndpoint: <span class="hljs-string">'https://dev-tracking.tombola.co.uk'</span>,
+  formFactor: <span class="hljs-string">'mobile'</span>,
+  appName: <span class="hljs-string">'ArcadeFlash'</span>,
+  trackingId: <span class="hljs-built_in">window</span>.localStorage.getItem(<span class="hljs-string">'tombola.device-id'</span>),
+  userId: <span class="hljs-number">12345</span>,
+  tenantId: <span class="hljs-number">1010</span>,
+  bufferedLog: <span class="hljs-literal">true</span>,
+  flushTimeout: <span class="hljs-number">5000</span>,
+  localStorage: <span class="hljs-built_in">window</span>.localStorage
+});
+
+myValidationLib.on(<span class="hljs-string">'username-invalid'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">message</span>) </span>{
+  tracker.log({
+      location: Tracker.Location.Login,
+      eventName: Tracker.EventName.ValidationError,
+      object: <span class="hljs-string">'username-textbox'</span>,
+      data: {
+        message: message
+      }
+  });
+});
+</code></pre>
+				<h2 id="gulp-commands">Gulp Commands</h2>
 				<ul>
-					<li><p>gulp (default): Compiles the typescript</p>
+					<li><p><code>gulp</code> (default): Compiles the typescript and loads the dev server index.html</p>
 					</li>
-					<li><p>gulp patch: Prepares the repo for a new patch release</p>
+					<li><p><code>gulp patch</code>: Prepares the repo for a new patch release</p>
 					</li>
-					<li><p>gulp minor: Prepares the repo for a new minor release</p>
+					<li><p><code>gulp minor</code>: Prepares the repo for a new minor release</p>
 					</li>
-					<li><p>gulp major: Prepares the repo for a new major release</p>
+					<li><p><code>gulp major</code>: Prepares the repo for a new major release</p>
 					</li>
 				</ul>
-				<p>The release prep tasks will create a new git tag and will auto bump the bower/package.json file version numbers</p>
+				<p>The release prep tasks will create a new git tag and will auto bump the bower/package.json file version numbers as well as generate and publish the latest version of the documentation.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -106,7 +166,7 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/interaction.html" class="tsd-kind-icon">Interaction</a>
 					</li>
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-is-external">
 						<a href="classes/logger.html" class="tsd-kind-icon">Logger</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -125,9 +185,12 @@
 						<a href="interfaces/ilogger.html" class="tsd-kind-icon">ILogger</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/itracker.html" class="tsd-kind-icon">ITracker</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/itrackerconfiguration.html" class="tsd-kind-icon">ITracker<wbr>Configuration</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-is-external tsd-is-not-exported">
+					<li class=" tsd-kind-interface tsd-is-not-exported">
 						<a href="interfaces/objectconstructor.html" class="tsd-kind-icon">Object<wbr>Constructor</a>
 					</li>
 					<li class=" tsd-kind-object-literal">

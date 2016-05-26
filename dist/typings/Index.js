@@ -1,3 +1,4 @@
+"use strict";
 require('./lib/utils');
 var constants_1 = require('./lib/constants');
 var enums_1 = require('./lib/enums');
@@ -18,13 +19,18 @@ var Tracker = (function () {
         });
         return this;
     };
-    Tracker.prototype.log = function (event) {
-        this.logger.push(event);
+    Tracker.prototype.log = function (arg) {
+        if (arg instanceof Array) {
+            arg.forEach(this.logger.push);
+        }
+        else {
+            this.logger.push(arg);
+        }
         return this;
     };
     Tracker.EventName = enums_1.EventName;
     Tracker.Location = enums_1.Location;
     return Tracker;
-})();
+}());
 exports.Tracker = Tracker;
-//# sourceMappingURL=Index.js.map
+//# sourceMappingURL=index.js.map

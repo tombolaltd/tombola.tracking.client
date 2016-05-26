@@ -75,8 +75,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	        return this;
 	    };
-	    Tracker.prototype.log = function (event) {
-	        this.logger.push(event);
+	    Tracker.prototype.log = function (arg) {
+	        if (arg instanceof Array) {
+	            arg.forEach(this.logger.push);
+	        }
+	        else {
+	            this.logger.push(arg);
+	        }
 	        return this;
 	    };
 	    Tracker.EventName = enums_1.EventName;
