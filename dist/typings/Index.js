@@ -21,7 +21,7 @@ var Tracker = (function () {
     };
     Tracker.prototype.log = function (arg) {
         if (arg instanceof Array) {
-            arg.forEach(this.logger.push);
+            arg.forEach(this.logger.push.bind(this.logger));
         }
         else {
             this.logger.push(arg);
