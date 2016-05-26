@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ILogger | tombola.tracking.client</title>
+	<title>ITracker | tombola.tracking.client</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ilogger.html">ILogger</a>
+					<a href="itracker.html">ITracker</a>
 				</li>
 			</ul>
-			<h1>Interface ILogger</h1>
+			<h1>Interface ITracker</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ILogger</span>
+						<span class="target">ITracker</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/tracker.html" class="tsd-signature-type">Tracker</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -80,64 +86,52 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ilogger.html#events" class="tsd-kind-icon">events</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ilogger.html#flushlogs" class="tsd-kind-icon">flush<wbr>Logs</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ilogger.html#push" class="tsd-kind-icon">push</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="itracker.html#addinteractions" class="tsd-kind-icon">add<wbr>Interactions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="itracker.html#log" class="tsd-kind-icon">log</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="events" class="tsd-anchor"></a>
-					<h3>events</h3>
-					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ILogger.ts#L5">lib/logging/ILogger.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="flushlogs" class="tsd-anchor"></a>
-					<h3>flush<wbr>Logs</h3>
+					<a name="addinteractions" class="tsd-anchor"></a>
+					<h3>add<wbr>Interactions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">flush<wbr>Logs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Interactions<span class="tsd-signature-symbol">(</span>interactions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iinteractionconfig.html" class="tsd-signature-type">IInteractionConfig</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="itracker.html" class="tsd-signature-type">ITracker</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ILogger.ts#L7">lib/logging/ILogger.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ITracker.ts#L5">lib/logging/ITracker.ts:5</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>interactions: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iinteractionconfig.html" class="tsd-signature-type">IInteractionConfig</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="itracker.html" class="tsd-signature-type">ITracker</a></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="push" class="tsd-anchor"></a>
-					<h3>push</h3>
+					<a name="log" class="tsd-anchor"></a>
+					<h3>log</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">push<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="itracker.html" class="tsd-signature-type">ITracker</a></li>
+						<li class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">(</span>events<span class="tsd-signature-symbol">: </span><a href="ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="itracker.html" class="tsd-signature-type">ITracker</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ILogger.ts#L6">lib/logging/ILogger.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ITracker.ts#L6">lib/logging/ITracker.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -146,7 +140,21 @@
 									<h5>event: <a href="ievent.html" class="tsd-signature-type">IEvent</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="itracker.html" class="tsd-signature-type">ITracker</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/adding_log_overload/src/lib/logging/ITracker.ts#L7">lib/logging/ITracker.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>events: <a href="ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="itracker.html" class="tsd-signature-type">ITracker</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -192,27 +200,24 @@
 					<li class=" tsd-kind-interface">
 						<a href="ilog.html" class="tsd-kind-icon">ILog</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ilogger.html" class="tsd-kind-icon">ILogger</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="ilogger.html" class="tsd-kind-icon">ILogger</a>
+						<a href="itracker.html" class="tsd-kind-icon">ITracker</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ilogger.html#events" class="tsd-kind-icon">events</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="itracker.html#addinteractions" class="tsd-kind-icon">add<wbr>Interactions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ilogger.html#flushlogs" class="tsd-kind-icon">flush<wbr>Logs</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ilogger.html#push" class="tsd-kind-icon">push</a>
+								<a href="itracker.html#log" class="tsd-kind-icon">log</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="itracker.html" class="tsd-kind-icon">ITracker</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="itrackerconfiguration.html" class="tsd-kind-icon">ITracker<wbr>Configuration</a>
 					</li>
