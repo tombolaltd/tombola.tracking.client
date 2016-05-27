@@ -8,15 +8,12 @@ var Interaction = (function () {
         this.buildEvent = buildEvent;
         this.logger = logger;
         if (this.elements.length > 0) {
-            var _loop_1 = function(i) {
-                this_1.elements[i].addEventListener(this_1.event, function (e) {
-                    var event = _this.buildEvent(_this.elements[i], e);
+            for (var i = 0; i < this.elements.length; i++) {
+                var thisElement = this.elements[i];
+                this.elements[i].addEventListener(this.event, function (e) {
+                    var event = _this.buildEvent(thisElement, e);
                     _this.logger.push(event);
                 });
-            };
-            var this_1 = this;
-            for (var i = 0; i < this.elements.length; i++) {
-                _loop_1(i);
             }
         }
         else {

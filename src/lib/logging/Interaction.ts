@@ -17,9 +17,10 @@ export class Interaction {
 
         if (this.elements.length > 0) {
 
-            for (let i = 0; i < this.elements.length; i++) {
+            for (var i = 0; i < this.elements.length; i++) {
+                var thisElement = <Element>this.elements[i];
                 this.elements[i].addEventListener(this.event, e => {
-                    let event = this.buildEvent( <Element>this.elements[i], e );
+                    let event = this.buildEvent(thisElement, e);
                     this.logger.push(event);
                 });
             }
