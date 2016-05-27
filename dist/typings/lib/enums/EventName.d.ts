@@ -5,6 +5,7 @@ declare enum EventName {
     ValidationError = 3,
     ValidationSuccess = 4,
     ButtonPress = 5,
+    FormInput = 6,
 }
 declare namespace EventName {
     function getStringValue(eventName: EventName): string;

@@ -4,7 +4,8 @@ enum EventName {
     PageIdle,
     ValidationError,
     ValidationSuccess,
-    ButtonPress
+    ButtonPress,
+    FormInput
 }
 
 namespace EventName {

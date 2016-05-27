@@ -1,3 +1,4 @@
+"use strict";
 var EventName;
 (function (EventName) {
     EventName[EventName["PageEnter"] = 0] = "PageEnter";
@@ -6,6 +7,7 @@ var EventName;
     EventName[EventName["ValidationError"] = 3] = "ValidationError";
     EventName[EventName["ValidationSuccess"] = 4] = "ValidationSuccess";
     EventName[EventName["ButtonPress"] = 5] = "ButtonPress";
+    EventName[EventName["FormInput"] = 6] = "FormInput";
 })(EventName || (EventName = {}));
 exports.EventName = EventName;
 var EventName;
