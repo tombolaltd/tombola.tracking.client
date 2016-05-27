@@ -3,6 +3,8 @@ enum Location {
     Login,
     MyAccount,
     Deposit,
+    FirstDeposit,
+    SecondIdVerification,
     Withdrawal,
     PaymentDetails,
     ChangePassword,

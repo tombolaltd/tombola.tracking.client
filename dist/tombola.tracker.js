@@ -160,6 +160,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    EventName[EventName["ValidationError"] = 3] = "ValidationError";
 	    EventName[EventName["ValidationSuccess"] = 4] = "ValidationSuccess";
 	    EventName[EventName["ButtonPress"] = 5] = "ButtonPress";
+	    EventName[EventName["FormInput"] = 6] = "FormInput";
 	})(EventName || (EventName = {}));
 	exports.EventName = EventName;
 	var EventName;
@@ -183,16 +184,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Location[Location["Login"] = 1] = "Login";
 	    Location[Location["MyAccount"] = 2] = "MyAccount";
 	    Location[Location["Deposit"] = 3] = "Deposit";
-	    Location[Location["Withdrawal"] = 4] = "Withdrawal";
-	    Location[Location["PaymentDetails"] = 5] = "PaymentDetails";
-	    Location[Location["ChangePassword"] = 6] = "ChangePassword";
-	    Location[Location["ChangeUsername"] = 7] = "ChangeUsername";
-	    Location[Location["ChangeContactPrefs"] = 8] = "ChangeContactPrefs";
-	    Location[Location["ChangeContactDetails"] = 9] = "ChangeContactDetails";
-	    Location[Location["LockLimitPrefs"] = 10] = "LockLimitPrefs";
-	    Location[Location["TimekeeperPrefs"] = 11] = "TimekeeperPrefs";
-	    Location[Location["CoolOffPrefs"] = 12] = "CoolOffPrefs";
-	    Location[Location["SelfExclusionPrefs"] = 13] = "SelfExclusionPrefs";
+	    Location[Location["FirstDeposit"] = 4] = "FirstDeposit";
+	    Location[Location["SecondIdVerification"] = 5] = "SecondIdVerification";
+	    Location[Location["Withdrawal"] = 6] = "Withdrawal";
+	    Location[Location["PaymentDetails"] = 7] = "PaymentDetails";
+	    Location[Location["ChangePassword"] = 8] = "ChangePassword";
+	    Location[Location["ChangeUsername"] = 9] = "ChangeUsername";
+	    Location[Location["ChangeContactPrefs"] = 10] = "ChangeContactPrefs";
+	    Location[Location["ChangeContactDetails"] = 11] = "ChangeContactDetails";
+	    Location[Location["LockLimitPrefs"] = 12] = "LockLimitPrefs";
+	    Location[Location["TimekeeperPrefs"] = 13] = "TimekeeperPrefs";
+	    Location[Location["CoolOffPrefs"] = 14] = "CoolOffPrefs";
+	    Location[Location["SelfExclusionPrefs"] = 15] = "SelfExclusionPrefs";
 	})(Location || (Location = {}));
 	exports.Location = Location;
 	var Location;
@@ -342,14 +345,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var _this = this;
 	        this.selector = selector;
 	        this.event = event;
-	        this.element = document.querySelector(this.selector);
+	        this.elements = document.querySelectorAll(this.selector);
 	        this.buildEvent = buildEvent;
 	        this.logger = logger;
-	        if (this.element) {
-	            this.element.addEventListener(this.event, function (e) {
-	                var event = _this.buildEvent(_this.element, e);
-	                _this.logger.push(event);
-	            });
+	        if (this.elements.length > 0) {
+	            var _loop_1 = function(i) {
+	                this_1.elements[i].addEventListener(this_1.event, function (e) {
+	                    var event = _this.buildEvent(_this.elements[i], e);
+	                    _this.logger.push(event);
+	                });
+	            };
+	            var this_1 = this;
+	            for (var i = 0; i < this.elements.length; i++) {
+	                _loop_1(i);
+	            }
 	        }
 	        else {
 	            console.warn('Tombola Tracker: Could not find an element with selector', this.selector);
