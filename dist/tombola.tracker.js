@@ -342,7 +342,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	"use strict";
 	var Interaction = (function () {
 	    function Interaction(logger, selector, event, buildEvent) {
-	        var _this = this;
 	        this.selector = selector;
 	        this.event = event;
 	        this.elements = document.querySelectorAll(this.selector);
@@ -350,11 +349,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.logger = logger;
 	        if (this.elements.length > 0) {
 	            for (var i = 0; i < this.elements.length; i++) {
-	                var thisElement = this.elements[i];
-	                this.elements[i].addEventListener(this.event, function (e) {
-	                    var event = _this.buildEvent(thisElement, e);
-	                    _this.logger.push(event);
-	                });
+	                var me = this;
+	                var handler = function (element) {
+	                    return function (e) {
+	                        var eventLog = me.buildEvent(element, e);
+	                        me.logger.push(eventLog);
+	                    };
+	                };
+	                this.elements[i].addEventListener(this.event, handler(this.elements[i]));
 	            }
 	        }
 	        else {
