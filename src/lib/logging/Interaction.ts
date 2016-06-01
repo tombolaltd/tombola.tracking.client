@@ -18,11 +18,14 @@ export class Interaction {
         if (this.elements.length > 0) {
 
             for (var i = 0; i < this.elements.length; i++) {
-                var thisElement = <Element>this.elements[i];
-                this.elements[i].addEventListener(this.event, e => {
-                    let event = this.buildEvent(thisElement, e);
-                    this.logger.push(event);
-                });
+                var me = this;
+                var handler = (element:Element) => {
+                    return (e:Event) => {
+                        let eventLog = me.buildEvent(element, e);
+                        me.logger.push(eventLog);
+                    }
+                }
+                this.elements[i].addEventListener(this.event, handler(<Element>this.elements[i]));
             }
 
         } else {
