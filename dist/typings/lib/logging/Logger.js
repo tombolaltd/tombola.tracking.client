@@ -2,11 +2,13 @@
 var constants_1 = require('../constants');
 var EventPayload_1 = require('./EventPayload');
 var enums_1 = require('../enums');
+var localStorage_polyfill_1 = require('../utils/localStorage-polyfill');
 var Logger = (function () {
     function Logger(configuration) {
         var _this = this;
         this.configuration = configuration;
         this.url = this.configuration.apiEndpoint + '/event';
+        this.configuration.localStorage = this.configuration.localStorage || new localStorage_polyfill_1.LocalStoragePollyfill();
         this.events = JSON.parse(this.configuration.localStorage.getItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
         if (this.configuration.bufferedLog) {
             if (this.configuration.localStorage === void 0) {

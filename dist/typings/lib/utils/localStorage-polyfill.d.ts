@@ -1,4 +1,4 @@
-export declare class LocalStoragePollyfill implements Storage {
+export declare class LocalStoragePolyfill implements Storage {
     [key: string]: any;
     _store: any;
     constructor();
