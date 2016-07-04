@@ -4,6 +4,7 @@ import {ILog} from "./ILog";
 import {IEvent} from './IEvent';
 import {EventPayload} from './EventPayload';
 import {Location, EventName} from '../enums';
+import {LocalStoragePollyfill} from '../utils/localStorage-polyfill';
 
 export class Logger {
     events:Array<IEvent>;
@@ -13,6 +14,7 @@ export class Logger {
     constructor(configuration:ITrackerConfiguration) {
         this.configuration = configuration;
         this.url = this.configuration.apiEndpoint + '/event';
+        this.configuration.localStorage = this.configuration.localStorage || new LocalStoragePollyfill();
         this.events = JSON.parse(this.configuration.localStorage.getItem(CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 
         if (this.configuration.bufferedLog) {

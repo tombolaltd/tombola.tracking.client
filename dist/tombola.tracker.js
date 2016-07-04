@@ -218,7 +218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	__export(__webpack_require__(8));
 	__export(__webpack_require__(9));
-	__export(__webpack_require__(11));
+	__export(__webpack_require__(12));
 
 
 /***/ },
@@ -248,11 +248,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	var constants_1 = __webpack_require__(3);
 	var EventPayload_1 = __webpack_require__(10);
 	var enums_1 = __webpack_require__(4);
+	var localStorage_polyfill_1 = __webpack_require__(11);
 	var Logger = (function () {
 	    function Logger(configuration) {
 	        var _this = this;
 	        this.configuration = configuration;
 	        this.url = this.configuration.apiEndpoint + '/event';
+	        this.configuration.localStorage = this.configuration.localStorage || new localStorage_polyfill_1.LocalStoragePollyfill();
 	        this.events = JSON.parse(this.configuration.localStorage.getItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 	        if (this.configuration.bufferedLog) {
 	            if (this.configuration.localStorage === void 0) {
@@ -337,6 +339,40 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 11 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var LocalStoragePollyfill = (function () {
+	    function LocalStoragePollyfill() {
+	        this._store = {};
+	    }
+	    Object.defineProperty(LocalStoragePollyfill.prototype, "length", {
+	        get: function () { return Object.keys(this._store).length; },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    LocalStoragePollyfill.prototype.getItem = function (key) {
+	        return this._store[key];
+	    };
+	    LocalStoragePollyfill.prototype.setItem = function (key, val) {
+	        this._store[key] = val;
+	    };
+	    LocalStoragePollyfill.prototype.removeItem = function (key) {
+	        delete this._store[key];
+	    };
+	    LocalStoragePollyfill.prototype.clear = function () {
+	        this._store = {};
+	    };
+	    LocalStoragePollyfill.prototype.key = function (index) {
+	        return Object.keys(this._store)[index];
+	    };
+	    return LocalStoragePollyfill;
+	}());
+	exports.LocalStoragePollyfill = LocalStoragePollyfill;
+
+
+/***/ },
+/* 12 */
 /***/ function(module, exports) {
 
 	"use strict";

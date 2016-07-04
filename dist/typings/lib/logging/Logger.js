@@ -1,3 +1,4 @@
+"use strict";
 var constants_1 = require('../constants');
 var EventPayload_1 = require('./EventPayload');
 var enums_1 = require('../enums');
@@ -30,17 +31,17 @@ var Logger = (function () {
     Logger.prototype.flushLogs = function () {
         var _this = this;
         try {
-            var xhr = new (XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0'), eventsToSend = this.events.splice(0);
-            if (eventsToSend.length > 0) {
-                xhr.open('POST', this.url, 1);
-                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-                xhr.setRequestHeader('Content-type', 'application/json');
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status >= 400 ||
-                            xhr.status >= 500) {
-                            _this.events = _this.events.concat(eventsToSend);
-                            console.error('Failed to send tracking events:', xhr);
+            var xhr_1 = new (XMLHttpRequest || ActiveXObject)('MSXML2.XMLHTTP.3.0'), eventsToSend_1 = this.events.splice(0);
+            if (eventsToSend_1.length > 0) {
+                xhr_1.open('POST', this.url, 1);
+                xhr_1.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr_1.setRequestHeader('Content-type', 'application/json');
+                xhr_1.onreadystatechange = function () {
+                    if (xhr_1.readyState === 4) {
+                        if (xhr_1.status >= 400 ||
+                            xhr_1.status >= 500) {
+                            _this.events = _this.events.concat(eventsToSend_1);
+                            console.error('Failed to send tracking events:', xhr_1);
                         }
                         _this.configuration.localStorage.setItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(_this.events));
                     }
@@ -53,11 +54,11 @@ var Logger = (function () {
                     userId: this.configuration.userId,
                     userAgent: window.navigator.userAgent
                 }, {
-                    events: eventsToSend.map(function (event) {
+                    events: eventsToSend_1.map(function (event) {
                         return new EventPayload_1.EventPayload(enums_1.Location.getStringValue(event.location), enums_1.EventName.getStringValue(event.eventName), event.clientTime, event.object, event.data);
                     })
                 });
-                xhr.send(JSON.stringify(payload));
+                xhr_1.send(JSON.stringify(payload));
             }
         }
         catch (e) {
@@ -65,6 +66,6 @@ var Logger = (function () {
         }
     };
     return Logger;
-})();
+}());
 exports.Logger = Logger;
 //# sourceMappingURL=Logger.js.map
