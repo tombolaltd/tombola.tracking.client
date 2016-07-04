@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Tracker | tombola.tracking.client</title>
+	<title>LocalStoragePollyfill | tombola.tracking.client</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="tracker.html">Tracker</a>
+					<a href="localstoragepollyfill.html">LocalStoragePollyfill</a>
 				</li>
 			</ul>
-			<h1>Class Tracker</h1>
+			<h1>Class LocalStoragePollyfill</h1>
 		</div>
 	</div>
 </header>
@@ -71,15 +71,19 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Tracker</span>
+						<span class="target">LocalStoragePollyfill</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/itracker.html" class="tsd-signature-type">ITracker</a></li>
+					<li><span class="tsd-signature-type">Storage</span></li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-class">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -88,24 +92,29 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="tracker.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="localstoragepollyfill.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="tracker.html#configuration" class="tsd-kind-icon">configuration</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="tracker.html#interactions" class="tsd-kind-icon">interactions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="tracker.html#logger" class="tsd-kind-icon">logger</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="tracker.html#eventname" class="tsd-kind-icon">Event<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="tracker.html#location" class="tsd-kind-icon">Location</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="localstoragepollyfill.html#_store" class="tsd-kind-icon">_store</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="localstoragepollyfill.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="tracker.html#addinteractions" class="tsd-kind-icon">add<wbr>Interactions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="tracker.html#log" class="tsd-kind-icon">log</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="localstoragepollyfill.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="localstoragepollyfill.html#getitem" class="tsd-kind-icon">get<wbr>Item</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="localstoragepollyfill.html#key" class="tsd-kind-icon">key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="localstoragepollyfill.html#removeitem" class="tsd-kind-icon">remove<wbr>Item</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="localstoragepollyfill.html#setitem" class="tsd-kind-icon">set<wbr>Item</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,22 +126,16 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Tracker<span class="tsd-signature-symbol">(</span>configuration<span class="tsd-signature-symbol">: </span><a href="../interfaces/itrackerconfiguration.html" class="tsd-signature-type">ITrackerConfiguration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="tracker.html" class="tsd-signature-type">Tracker</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Local<wbr>Storage<wbr>Pollyfill<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="localstoragepollyfill.html" class="tsd-signature-type">LocalStoragePollyfill</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L15">index.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L3">lib/utils/localStorage-polyfill.ts:3</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>configuration: <a href="../interfaces/itrackerconfiguration.html" class="tsd-signature-type">ITrackerConfiguration</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="tracker.html" class="tsd-signature-type">Tracker</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="localstoragepollyfill.html" class="tsd-signature-type">LocalStoragePollyfill</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -140,119 +143,147 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="configuration" class="tsd-anchor"></a>
-					<h3>configuration</h3>
-					<div class="tsd-signature tsd-kind-icon">configuration<span class="tsd-signature-symbol">:</span> <a href="../interfaces/itrackerconfiguration.html" class="tsd-signature-type">ITrackerConfiguration</a></div>
+					<a name="_store" class="tsd-anchor"></a>
+					<h3>_store</h3>
+					<div class="tsd-signature tsd-kind-icon">_store<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L15">index.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="interactions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> interactions</h3>
-					<div class="tsd-signature tsd-kind-icon">interactions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="interaction.html" class="tsd-signature-type">Interaction</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L13">index.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="logger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> logger</h3>
-					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="logger.html" class="tsd-signature-type">Logger</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L12">index.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="eventname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> Event<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">Event<wbr>Name<span class="tsd-signature-symbol">:</span> <a href="../enums/eventname.html" class="tsd-signature-type">EventName</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L9">index.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="location" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> Location</h3>
-					<div class="tsd-signature tsd-kind-icon">Location<span class="tsd-signature-symbol">:</span> <a href="../enums/location.html" class="tsd-signature-type">Location</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L10">index.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L3">lib/utils/localStorage-polyfill.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="addinteractions" class="tsd-anchor"></a>
-					<h3>add<wbr>Interactions</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Interactions<span class="tsd-signature-symbol">(</span>interactions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iinteractionconfig.html" class="tsd-signature-type">IInteractionConfig</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="tracker.html" class="tsd-signature-type">Tracker</a></li>
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> length<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/itracker.html">ITracker</a>.<a href="../interfaces/itracker.html#addinteractions">addInteractions</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L28">index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L9">lib/utils/localStorage-polyfill.ts:9</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>interactions: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iinteractionconfig.html" class="tsd-signature-type">IInteractionConfig</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="tracker.html" class="tsd-signature-type">Tracker</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="clear" class="tsd-anchor"></a>
+					<h3>clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L23">lib/utils/localStorage-polyfill.ts:23</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="log" class="tsd-anchor"></a>
-					<h3>log</h3>
+					<a name="getitem" class="tsd-anchor"></a>
+					<h3>get<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../interfaces/ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/itracker.html" class="tsd-signature-type">ITracker</a></li>
-						<li class="tsd-signature tsd-kind-icon">log<span class="tsd-signature-symbol">(</span>events<span class="tsd-signature-symbol">: </span><a href="../interfaces/ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/itracker.html" class="tsd-signature-type">ITracker</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Item<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/itracker.html">ITracker</a>.<a href="../interfaces/itracker.html#log">log</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L36">index.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L11">lib/utils/localStorage-polyfill.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../interfaces/ievent.html" class="tsd-signature-type">IEvent</a></h5>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/itracker.html" class="tsd-signature-type">ITracker</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="key" class="tsd-anchor"></a>
+					<h3>key</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/itracker.html">ITracker</a>.<a href="../interfaces/itracker.html#log">log</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/index.ts#L37">index.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L27">lib/utils/localStorage-polyfill.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>events: <a href="../interfaces/ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/itracker.html" class="tsd-signature-type">ITracker</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removeitem" class="tsd-anchor"></a>
+					<h3>remove<wbr>Item</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Item<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L19">lib/utils/localStorage-polyfill.ts:19</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setitem" class="tsd-anchor"></a>
+					<h3>set<wbr>Item</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Item<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tombolaltd/tombola.tracking.client/blob/including_a_simple_localstorage_pollyfill/src/lib/utils/localStorage-polyfill.ts#L15">lib/utils/localStorage-polyfill.ts:15</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>val: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -283,45 +314,45 @@
 					<li class=" tsd-kind-class">
 						<a href="interaction.html" class="tsd-kind-icon">Interaction</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="localstoragepollyfill.html" class="tsd-kind-icon">Local<wbr>Storage<wbr>Pollyfill</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-external">
-						<a href="logger.html" class="tsd-kind-icon">Logger</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="tracker.html" class="tsd-kind-icon">Tracker</a>
+						<a href="localstoragepollyfill.html" class="tsd-kind-icon">Local<wbr>Storage<wbr>Pollyfill</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="tracker.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="localstoragepollyfill.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="tracker.html#configuration" class="tsd-kind-icon">configuration</a>
+								<a href="localstoragepollyfill.html#_store" class="tsd-kind-icon">_store</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="tracker.html#interactions" class="tsd-kind-icon">interactions</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="tracker.html#logger" class="tsd-kind-icon">logger</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="tracker.html#eventname" class="tsd-kind-icon">Event<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="tracker.html#location" class="tsd-kind-icon">Location</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="localstoragepollyfill.html#length" class="tsd-kind-icon">length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="tracker.html#addinteractions" class="tsd-kind-icon">add<wbr>Interactions</a>
+								<a href="localstoragepollyfill.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="tracker.html#log" class="tsd-kind-icon">log</a>
+								<a href="localstoragepollyfill.html#getitem" class="tsd-kind-icon">get<wbr>Item</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="localstoragepollyfill.html#key" class="tsd-kind-icon">key</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="localstoragepollyfill.html#removeitem" class="tsd-kind-icon">remove<wbr>Item</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="localstoragepollyfill.html#setitem" class="tsd-kind-icon">set<wbr>Item</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-is-external">
+						<a href="logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="tracker.html" class="tsd-kind-icon">Tracker</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/ievent.html" class="tsd-kind-icon">IEvent</a>
 					</li>
