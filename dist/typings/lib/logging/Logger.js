@@ -8,7 +8,7 @@ var Logger = (function () {
         var _this = this;
         this.configuration = configuration;
         this.url = this.configuration.apiEndpoint + '/event';
-        this.configuration.localStorage = this.configuration.localStorage || new localStorage_polyfill_1.LocalStoragePollyfill();
+        this.configuration.localStorage = this.configuration.localStorage || new localStorage_polyfill_1.LocalStoragePolyfill();
         this.events = JSON.parse(this.configuration.localStorage.getItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
         if (this.configuration.bufferedLog) {
             if (this.configuration.localStorage === void 0) {

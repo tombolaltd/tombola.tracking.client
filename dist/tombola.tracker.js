@@ -258,7 +258,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.events = JSON.parse(this.configuration.localStorage.getItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY) || '[]');
 	        if (this.configuration.bufferedLog) {
 	            if (this.configuration.localStorage === void 0) {
-	                throw new Error('"localStorage" is required when using a buffered log');
+	                throw new Error('Tombola Events: "localStorage" is required when using a buffered log');
 	            }
 	            window.setInterval(function () { return _this.flushLogs(); }, this.configuration.flushTimeout);
 	        }
@@ -289,7 +289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        if (xhr_1.status >= 400 ||
 	                            xhr_1.status >= 500) {
 	                            _this.events = _this.events.concat(eventsToSend_1);
-	                            console.error('Failed to send tracking events:', xhr_1);
+	                            console.error('Tombola Events: Failed to send tracking events:', xhr_1);
 	                        }
 	                        _this.configuration.localStorage.setItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(_this.events));
 	                    }
@@ -310,7 +310,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        catch (e) {
-	            console.error('Failed to send tracking events:', e);
+	            console.error('Tombola Events: Failed to send tracking events:', e);
 	        }
 	    };
 	    return Logger;
@@ -396,7 +396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        else {
-	            console.warn('Tombola Tracker: Could not find an element with selector', this.selector);
+	            console.warn('Tombola Events: Could not find an element with selector', this.selector);
 	        }
 	    }
 	    return Interaction;
