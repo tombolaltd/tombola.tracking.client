@@ -1,6 +1,6 @@
 {
   "name": "tombola.tracking.client",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "JavaScript client for pushing tracking events to the tracking API",
   "main": "./dist/tombola.tracker.min.js",
   "authors": [
