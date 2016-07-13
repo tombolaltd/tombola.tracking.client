@@ -19,7 +19,7 @@ var Interaction = (function () {
             }
         }
         else {
-            console.warn('Tombola Tracker: Could not find an element with selector', this.selector);
+            console.warn('Tombola Events: Could not find an element with selector', this.selector);
         }
     }
     return Interaction;

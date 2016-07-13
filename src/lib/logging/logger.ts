@@ -19,7 +19,7 @@ export class Logger {
 
         if (this.configuration.bufferedLog) {
             if (this.configuration.localStorage === void 0) {
-                throw new Error('"localStorage" is required when using a buffered log');
+                throw new Error('Tombola Events: "localStorage" is required when using a buffered log');
             }
 
             window.setInterval(() => this.flushLogs(), this.configuration.flushTimeout);
@@ -55,7 +55,7 @@ export class Logger {
                         if (xhr.status >= 400 ||
                             xhr.status >= 500) {
                             this.events = this.events.concat(eventsToSend);
-                            console.error('Failed to send tracking events:', xhr);
+                            console.error('Tombola Events: Failed to send tracking events:', xhr);
                         }
 
                         this.configuration.localStorage.setItem(CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(this.events));
@@ -84,7 +84,7 @@ export class Logger {
                 xhr.send(JSON.stringify(payload));
             }
         } catch (e) {
-            console.error('Failed to send tracking events:', e);
+            console.error('Tombola Events: Failed to send tracking events:', e);
         }
     }
 }

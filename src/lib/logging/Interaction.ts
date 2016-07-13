@@ -16,7 +16,6 @@ export class Interaction {
         this.logger = logger;
 
         if (this.elements.length > 0) {
-
             for (var i = 0; i < this.elements.length; i++) {
                 var me = this;
                 var handler = (element:Element) => {
@@ -29,7 +28,7 @@ export class Interaction {
             }
 
         } else {
-            console.warn('Tombola Tracker: Could not find an element with selector', this.selector);
+            console.warn('Tombola Events: Could not find an element with selector', this.selector);
         }
     }
 }
