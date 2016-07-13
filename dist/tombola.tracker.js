@@ -289,7 +289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        if (xhr_1.status >= 400 ||
 	                            xhr_1.status >= 500) {
 	                            _this.events = _this.events.concat(eventsToSend_1);
-	                            console.error('Tombola Events: Failed to send tracking events:', xhr_1);
+	                            console.error('Tombola Events: Failed to send events:', xhr_1);
 	                        }
 	                        _this.configuration.localStorage.setItem(constants_1.CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(_this.events));
 	                    }

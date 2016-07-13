@@ -55,7 +55,7 @@ export class Logger {
                         if (xhr.status >= 400 ||
                             xhr.status >= 500) {
                             this.events = this.events.concat(eventsToSend);
-                            console.error('Tombola Events: Failed to send tracking events:', xhr);
+                            console.error('Tombola Events: Failed to send events:', xhr);
                         }
 
                         this.configuration.localStorage.setItem(CONSTANTS.LOCAL_STORAGE_KEY, JSON.stringify(this.events));
